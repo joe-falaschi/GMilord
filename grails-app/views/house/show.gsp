@@ -34,11 +34,11 @@
 					</li>
 				</g:if>
 				Heroes:
-				<g:if test="${!heroes }">
+				<g:if test="${!houseInstance.heroes }">
 					<br/>
 					You have no heroes.  You should hire one!
 				</g:if>
-				<g:each in="${heroes }">
+				<g:each in="${houseInstance.heroes }">
 					<br/>${it }
 				</g:each>
 			
