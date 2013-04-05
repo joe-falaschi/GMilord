@@ -12,7 +12,7 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<g:ifPlayer>
-					<li><g:link class="hero" action="hire" parms="user.house"><g:message code="Hire This Hero"/></g:link></li>
+					<li><g:hireHeroControl heroId="${heroInstance.id }"/>
 				</g:ifPlayer>
 				<g:ifAdmin>
 					<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>

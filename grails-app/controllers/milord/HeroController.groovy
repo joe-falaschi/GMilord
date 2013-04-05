@@ -1,5 +1,7 @@
 package milord
 
+import grails.converters.JSON
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class HeroController {
@@ -101,11 +103,12 @@ class HeroController {
         }
     }
     
-    def hire(hero)
+    def hire()
     {
-    	def heroInstance = Hero.get(params.id)
-    	
-    	house.addToHeroes(heroInstance)
-    	redirect(controller: "house", action: "show", id: house.id)
+    	def heroInstance = Hero.get(params.heroId)
+    	// def house = session.user?.house
+    	// house?.addToHeroes(heroInstance)
+    	// redirect(controller: "house", action: "show", id: house.id)
+		render params		
     }
 }
