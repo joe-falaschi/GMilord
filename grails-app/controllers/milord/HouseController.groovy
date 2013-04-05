@@ -134,8 +134,7 @@ class HouseController {
     {
         boolean perm
         
-		// Limit editing to house owner
-        User user = session.user
+		User user = session.user
         
         if(user != null)
         	if(user.login == houseInstance.user.login)
