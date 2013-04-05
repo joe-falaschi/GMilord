@@ -106,9 +106,12 @@ class HeroController {
     def hire()
     {
     	def heroInstance = Hero.get(params.heroId)
-    	// def house = session.user?.house
-    	// house?.addToHeroes(heroInstance)
+		def user = session.user.refresh()
+		
+		def house = session.user?.house
+    	house?.addToHeroes(heroInstance)
+		house.save()
     	// redirect(controller: "house", action: "show", id: house.id)
-		render params		
+		render house as JSON		
     }
 }
