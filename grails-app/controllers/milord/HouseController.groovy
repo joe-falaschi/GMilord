@@ -1,5 +1,7 @@
 package milord
 
+import grails.converters.JSON
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class HouseController {
@@ -37,9 +39,10 @@ class HouseController {
             redirect(action: "list")
             return
         }
+		
+		println houseInstance as JSON
 
-        [houseInstance: houseInstance]
-        [innInstanceList: Inn.list(params), innInstanceTotal: Inn.count()]
+        [houseInstance: houseInstance, innInstanceList: Inn.list(params), innInstanceTotal: Inn.count()]
     }
 
     def edit() {
