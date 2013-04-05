@@ -26,13 +26,21 @@
 			<ol class="property-list house">
 			
 				<g:if test="${houseInstance?.house_name}">
-				<li class="fieldcontain">
-					<span id="house_name-label" class="property-label"><g:message code="house.house_name.label" default="Housename" /></span>
-					
-						<span class="property-value" aria-labelledby="house_name-label"><g:fieldValue bean="${houseInstance}" field="house_name"/></span>
-					
-				</li>
+					<li class="fieldcontain">
+						<span id="house_name-label" class="property-label"><g:message code="house.house_name.label" default="Housename" /></span>
+						
+							<span class="property-value" aria-labelledby="house_name-label"><g:fieldValue bean="${houseInstance}" field="house_name"/></span>
+						
+					</li>
 				</g:if>
+				Heroes:
+				<g:if test="${!heroes }">
+					<br/>
+					You have no heroes.  You should hire one!
+				</g:if>
+				<g:each in="${heroes }">
+					<br/>${it }
+				</g:each>
 			
 			</ol>
 			<g:set var="innName" value="${message(code: 'inn.label', default: 'Inn')}" />
